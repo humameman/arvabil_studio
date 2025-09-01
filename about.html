@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Arvabil Dream Studio</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    /* ===== About Page Specific Styles ===== */
+
+    /* ===== About Banner ===== */
+    .about-banner {
+      background: url('banner.jpg') center/cover no-repeat;
+      text-align: center;
+      padding: 80px 20px;
+      color: white;
+      text-transform: uppercase;
+    }
+    .about-banner h1 {
+      font-size: 50px;
+      margin-bottom: 10px;
+    }
+    .about-banner p {
+      font-size: 18px;
+      letter-spacing: 2px;
+    }
+
+    /* ===== About Section ===== */
+    .about-section {
+      display: flex;
+      gap: 40px;
+      padding: 60px 8%;
+      background: #111;
+      color: white;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .about-images {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    .about-images img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .about-text {
+      flex: 1;
+    }
+    .about-text h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+    .about-text p {
+      font-size: 22px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .about-text h3 {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+    .about-text ul {
+      list-style: none;
+      padding: 0;
+    }
+    .about-text ul li {
+      font-size: 20px;
+      padding: 8px 0;
+      border-bottom: 1px solid #333;
+    }
+
+    /* =================== RESPONSIVE BREAKPOINTS =================== */
+    @media (max-width: 1024px) {
+      .about-text h2 {
+        font-size: 32px;
+      }
+      .about-text p {
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .about-banner h1 {
+        font-size: 36px;
+      }
+      .about-section {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about-banner {
+        padding: 50px 15px;
+      }
+      .about-banner h1 {
+        font-size: 28px;
+      }
+      .about-text h2 {
+        font-size: 24px;
+      }
+      .about-text p {
+        font-size: 16px;
+      }
+      .about-images {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Side Menu -->
+  <div id="sideMenu" class="side-menu">
+    <div class="close-btn" onclick="closeMenu()">✕</div>
+    <ul>
+      <li><a href="index.html"><span>01</span> HOME</a></li>
+      <li><a href="about.html"><span>02</span> ABOUT US</a></li>
+      <li><a href="project.html"><span>03</span> PROJECT</a></li>
+      <li><a href="contact.html"><span>04</span> CONTACT</a></li>
+    </ul>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="menu-btn" onclick="openMenu()">&#9776;</div>
+
+    <div class="logo">
+      <img src="logo.png" alt="Arvabil Design Studio">
+      <span>Arvabil Dream Studio</span>
+    </div>
+
+    <div class="header-right">
+      <a href="tel:+919824008557">+91 9824008557</a> |
+      <a href="mailto:arvabilinfo@gmail.com">arvabilinfo@gmail.com</a> |
+      <a href="https://www.instagram.com/arvabil_design_studio" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://youtube.com/@arvabildesignstudio" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.linkedin.com/company/arvabil/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://in.pinterest.com/arvabil_design_studio" target="_blank"><i class="fab fa-pinterest"></i></a>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <section class="about-banner">
+    <h1>About Us</h1>
+    <p>Who we are & what we do</p>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="about-images">
+      <div>
+        <img src="img1.jpg" alt="Design 1">
+        <img src="img2.jpg" alt="Design 2">
+      </div>
+      <div>
+        <img src="img3.jpg" alt="Design 3">
+        <img src="img4.jpg" alt="Design 4">
+      </div>
+    </div>
+
+    <div class="about-text">
+      <h2>We Make Your Dream Come True</h2>
+      <p>
+        Arvabil Dream Studio is a creative architecture and design company 
+        dedicated to crafting innovative spaces. With 10 years experience & 800+ Projects completed, 
+        we transform ideas into reality, blending functionality with style.
+      </p>
+      <p>
+        From concept to completion, we work closely with our clients to ensure every detail reflects their vision.
+      </p>
+      <h3>Our Design Services</h3>
+      <ul>
+        <li>✔ Architectural Design</li>
+        <li>✔ Interior Design</li>
+        <li>✔ Landscape Design</li>
+        <li>✔ Turnkey Projects</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- JS -->
+  <script>
+    function openMenu() {
+      document.getElementById("sideMenu").style.left = "0";
+    }
+    function closeMenu() {
+      document.getElementById("sideMenu").style.left = "-300px";
+    }
+  </script>
+
+</body>
+</html>

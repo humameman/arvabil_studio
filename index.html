@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arvabil Design Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* ========== Base Layout ========== */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Video Gallery */
+    .video-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      padding: 50px;
+      background: #f9f9f9;
+    }
+    .video-gallery iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 10px;
+      border: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-top: 40px;
+      font-weight: bold;
+    }
+
+    /* Back Button */
+    .back-btn {
+      display: none;
+      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      background: linear-gradient(135deg, #feb47b, #ff7e5f);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+
+    /* Main Cards */
+    .cards {
+      display: flex;
+      flex-direction: row;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .card {
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      width: 33.333%;
+      height: 100vh;
+      color: white;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+    .card:hover {
+      width: 50%;
+      transform: scale(1.05);
+      z-index: 10;
+    }
+    .overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2));
+      transition: all 0.8s ease;
+    }
+    .card:hover .overlay {
+      background: linear-gradient(135deg, rgba(255, 107, 107, 0.3), rgba(255, 193, 7, 0.2));
+    }
+    .card:nth-child(2):hover .overlay {
+      background: linear-gradient(135deg, rgba(108, 117, 125, 0.3), rgba(52, 58, 64, 0.2));
+    }
+    .card:nth-child(3):hover .overlay {
+      background: linear-gradient(135deg, rgba(220, 53, 69, 0.3), rgba(255, 69, 0, 0.2));
+    }
+    .card-content {
+      position: relative;
+      bottom: 120px;
+      padding: 40px;
+      z-index: 2;
+      transform: translateY(30px);
+      opacity: 0.9;
+      transition: all 0.8s ease;
+    }
+    .card:hover .card-content {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .card-content .number {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      display: block;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .card-content p {
+      font-size: 16px;
+
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+      opacity: 0.8;
+      font-weight: 300;
+    }
+    .card-content h2 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.3;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    /* ================== Responsive Queries ================== */
+    @media (max-width: 768px) {
+      .cards {
+        height: 100vh;
+        flex-direction: column;
+      }
+      .card {
+        width: 100%;
+        height: 33.333vh;
+      }
+      .card:hover {
+        height: 45vh;
+        transform: scale(1.03);
+      }
+      .card-content {
+        padding: 30px;
+      }
+      .card-content .number {
+        font-size: 32px;
+      }
+      .card-content h2 {
+        font-size: 24px;
+      }
+      .card-content p {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .video-gallery {
+        padding: 20px;
+      }
+      .card {
+        width: 100%;
+        height: 33.333vh;
+      }
+      .card:hover {
+        height: 40vh;
+        transform: scale(1.02);
+      }
+      .card-content {
+        padding: 25px;
+      }
+      .card-content .number {
+        font-size: 28px;
+      }
+      .card-content h2 {
+        font-size: 20px;
+      }
+      .card-content p {
+        font-size: 12px;
+        letter-spacing: 2px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card-content {
+        padding: 20px;
+      }
+      .card-content .number {
+        font-size: 24px;
+      }
+      .card-content h2 {
+        font-size: 18px;
+      }
+      .card-content p {
+        font-size: 11px;
+        letter-spacing: 1px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Side Menu -->
+  <div id="sideMenu" class="side-menu">
+    <div class="close-btn" onclick="closeMenu()">✕</div>
+    <ul>
+      <li><a href="index.html"><span>01</span> HOME</a></li>
+      <li><a href="about.html"><span>02</span> ABOUT US</a></li>
+      <li><a href="project.html"><span>03</span> PROJECT</a></li>
+      <li><a href="contact.html"><span>04</span> CONTACT</a></li>
+    </ul>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <!-- Back Button -->
+    <a href="javascript:history.back()" class="back-btn" id="backBtn">⬅ Back</a>
+
+    <!-- Menu Button -->
+    <div class="menu-btn" onclick="openMenu()">&#9776;</div>
+
+    <!-- Logo -->
+    <div class="logo">
+      <img src="logo.png" alt="Arvabil Design Studio">
+      <span>Arvabil Dream Studio</span>
+    </div>
+
+    <!-- Header Right -->
+    <div class="header-right">
+      <a href="tel:+919824008557">+91 9824008557</a> |
+      <a href="mailto:arvabilinfo@gmail.com">arvabilinfo@gmail.com</a> &nbsp; |
+      <a href="https://www.instagram.com/arvabil_design_studio" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://youtube.com/@arvabildesignstudio" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.linkedin.com/company/arvabil/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://in.pinterest.com/arvabil_design_studio" target="_blank"><i class="fab fa-pinterest"></i></a>
+    </div>  
+  </header>
+
+  <!-- Main Cards -->
+  <section class="cards">
+    <div class="card" style="background-image: url('img1.png');">
+      <div class="overlay"></div>
+      <div class="card-content">
+        <div class="number">01</div>
+        <p>buildings</p>
+        <h2>The concept for better living</h2>
+      </div>
+    </div>
+    <div class="card" style="background-image: url('img2.png');">
+      <div class="overlay"></div>
+      <div class="card-content">
+        <div class="number">02</div>
+        <p>buildings</p>
+        <h2>Dreams under construction</h2>
+      </div>
+    </div>
+    <div class="card red" style="background-image: url('img3.png');">
+      <div class="overlay"></div>';">
+      <div class="overlay red-overlay"></div>
+      <div class="card-content">
+        <div class="number">03</div>
+        <p>buildings</p>
+        <h2>Shaping for a better future</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- JS -->
+  <script>
+    function openMenu() {
+      document.getElementById("sideMenu").style.left = "0";
+    }
+    function closeMenu() {
+      document.getElementById("sideMenu").style.left = "-300px";
+    }
+
+    // Show back button only if not on home page
+    const currentPage = window.location.pathname.split("/").pop();
+    if (currentPage && currentPage !== "" && currentPage !== "index.html") {
+      document.getElementById("backBtn").style.display = "inline-block";
+    }
+  </script>
+</body>
+</html>

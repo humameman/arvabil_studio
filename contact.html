@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Arvabil Design Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ===== Global Responsive Baseline ===== */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body { overflow-x: hidden; }
+    img, iframe { max-width: 100%; height: auto; }
+    
+    /* ===== Contact Page Specific Styles ===== */
+
+    /* ===== WhatsApp Floating Button ===== */
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 5px #999;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+    .whatsapp-float i {
+      margin-top: 15px;
+    }
+    .whatsapp-float:hover {
+      background-color: #20b954;
+    }
+
+    /* Contact top section */
+    .contact-top {
+      display: flex;
+      justify-content: space-around;
+      margin: 40px 20px;
+      text-align: left;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .contact-top .column {
+      flex: 1;
+      min-width: 250px;
+      padding: 0 20px;
+    }
+    .contact-top h3 {
+      margin-bottom: 15px;
+      color: #fff;
+    }
+    .contact-top ul {
+      list-style: none;
+      padding: 0;
+    }
+    .contact-top ul li {
+      margin: 8px 0;
+      color: #ccc;
+    }
+    .contact-top a {
+      color: #ccc;
+      text-decoration: none;
+    }
+    .contact-top a:hover {
+      color: #fff;
+    }
+
+    /* Contact form + map */
+    .contact-form-map {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin: 40px 20px;
+    }
+    .contact-form {
+      flex: 1;
+      min-width: 280px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .contact-form h2 {
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      width: 100%;
+      max-width: 100%;
+    }
+    .contact-form button {
+      padding: 12px;
+      background: #2f2f2f;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    .contact-form button:hover {
+      background: #444;
+    }
+
+    .map-container {
+      flex: 1;
+      min-width: 280px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .map-container iframe {
+      width: 100%;
+      min-height: 250px;
+      border: none;
+    }
+
+    /* ===== Responsive Design ===== */
+    @media (max-width: 768px) {
+      .contact-top {
+        flex-direction: column;
+        text-align: center;
+      }
+      .map-container {
+        grid-template-columns: 1fr;
+      }
+      .contact-form {
+        min-width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact-form-map {
+        flex-direction: column;
+      }
+      .contact-form input,
+      .contact-form textarea {
+        font-size: 14px;
+      }
+      .contact-form button {
+        font-size: 14px;
+      }
+      .contact-top {
+        margin: 20px 12px;
+      }
+      .contact-form-map {
+        margin: 24px 12px;
+        gap: 16px;
+      }
+    }
+
+    /* Very small devices */
+    @media (max-width: 360px) {
+      .contact-form button { padding: 10px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Side Menu -->
+  <div id="sideMenu" class="side-menu">
+    <div class="close-btn" onclick="closeMenu()">✕</div>
+    <ul>
+      <li><a href="index.html"><span>01</span> HOME</a></li>
+      <li><a href="about.html"><span>02</span> ABOUT US</a></li>
+      <li><a href="project.html"><span>03</span> PROJECT</a></li>
+      <li><a href="contact.html"><span>04</span> CONTACT</a></li>
+    </ul>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="menu-btn" onclick="openMenu()">&#9776;</div>
+    <div class="logo">
+      <img src="logo.png" alt="Arvabil Design Studio">
+      <span>Arvabil Dream Studio</span>
+    </div>
+    <div class="header-right">
+      <a href="tel:+919824008557">+91 9824008557</a> |
+      <a href="mailto:arvabilinfo@gmail.com">arvabilinfo@gmail.com</a> &nbsp; |
+      <a href="https://www.instagram.com/arvabil_design_studio" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://youtube.com/@arvabildesignstudio" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.linkedin.com/company/arvabil/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://in.pinterest.com/arvabil_design_studio" target="_blank"><i class="fab fa-pinterest"></i></a>
+    </div>  
+  </header>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <h1 style="text-align:center; color:white;">Contact Us</h1>
+
+    <div class="contact-top">
+      <div class="column">
+        <h3>LOCATIONS</h3>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i> Mahesana</li>
+          <li><i class="fas fa-map-marker-alt"></i> Ahmedabad</li>
+        </ul>
+      </div>
+      <div class="column">
+        <h3>CONNECT</h3>
+        <ul>
+          <li><i class="fab fa-instagram"></i> Instagram</li>
+          <li><i class="fab fa-youtube"></i> YouTube</li>
+          <li><i class="fab fa-linkedin-in"></i> LinkedIn</li>
+        </ul>
+      </div>
+      <div class="column">
+        <h3>GET IN TOUCH</h3>
+        <ul>
+          <li><i class="fas fa-envelope"></i> arvabilinfo@gmail.com</li>
+          <li><i class="fas fa-phone-alt"></i> 91 9824008557</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="contact-form-map">
+      <form class="contact-form">
+        <h2>Send Message</h2>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="text" placeholder="Your Website">
+        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">SEND MESSAGE</button>
+      </form>
+
+      <div class="map-container">
+  <div class="map-box">
+    <iframe src="https://maps.app.goo.gl/L3g4tHyh4GXaFJDo7?g_st=aw" allowfullscreen="" loading="lazy"></iframe>
+    <p class="map-title">Ahmedabad</p>
+  </div>
+
+  <div class="map-box">
+    <iframe src="https://maps.app.goo.gl/VjkqdHwrSbAmqvuy7?g_st=aw" allowfullscreen="" loading="lazy"></iframe>
+    <p class="map-title">Mehsana</p>
+  </div>
+</div>
+
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/919824008557" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    function openMenu() {
+      document.getElementById("sideMenu").style.left = "0";
+    }
+    function closeMenu() {
+      document.getElementById("sideMenu").style.left = "-300px";
+    }
+  </script>
+</body>
+</html>
